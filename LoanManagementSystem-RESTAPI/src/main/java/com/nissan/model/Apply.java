@@ -1,8 +1,7 @@
 package com.nissan.model;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Apply")
@@ -36,9 +32,6 @@ public class Apply {
 	@ManyToOne
 	private LoanType loanType;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy="apply",cascade=CascadeType.ALL)
-	private List<User> users;
 
 	public Apply() {
 		super();
@@ -121,19 +114,12 @@ public class Apply {
 		this.loanType = loanType;
 	}
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
 
 	@Override
 	public String toString() {
 		return "Apply [applId=" + applId + ", applName=" + applName + ", applPhone=" + applPhone + ", applEmail="
 				+ applEmail + ", amount=" + amount + ", period=" + period + ", address=" + address + ", loanType="
-				+ loanType + ", users=" + users + "]";
+				+ loanType + "]";
 	}
 	
 	
