@@ -39,15 +39,7 @@ public class User {
 	@JoinColumn(name="roleId",insertable=false,updatable=false)
 	@ManyToOne
 	private Role role; 
-	
-	@JoinColumn(name="applId",insertable=false,updatable=false)
-	@ManyToOne
-	private Apply apply; 
-	
-	
-	@JoinColumn(name="helpId",insertable=false,updatable=false)
-	@ManyToOne
-	private Help help; 
+	 
 	
 	
 	public User() {
@@ -56,7 +48,7 @@ public class User {
 
 
 	public User(int userId, String userName, String password, String fullName, boolean isActive, int roleId,
-			String mob, Date dob, String gender, String status, Role role, Apply apply,Help help) {
+			String mob, Date dob, String gender, String status, Role role) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -68,9 +60,7 @@ public class User {
 		this.dob = dob;
 		this.gender = gender;
 		this.status = status;
-		this.help=help;
 		this.role = role;
-		this.apply=apply;
 	}
 
 	
@@ -185,30 +175,11 @@ public class User {
 	}
 
 
-	public Apply getApply() {
-		return apply;
-	}
-
-
-	public void setApply(Apply apply) {
-		this.apply = apply;
-	}
-
-
-	public Help getHelp() {
-		return help;
-	}
-
-
-	public void setHelp(Help help) {
-		this.help = help;
-	}
-
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", fullName="
 				+ fullName + ", isActive=" + isActive + ", roleId=" + roleId + ", mob=" + mob + ", dob=" + dob
-				+ ", gender=" + gender + ", status=" + status + ", role=" + role + ", apply=" + apply + "]";
+				+ ", gender=" + gender + ", status=" + status + ", role=" + role +  "]";
 	}
 }

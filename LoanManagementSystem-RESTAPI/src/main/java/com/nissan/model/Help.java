@@ -1,18 +1,13 @@
 package com.nissan.model;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Help")
@@ -27,9 +22,6 @@ public class Help {
 		private String issue;
 		private String description;
 		
-		@JsonIgnore
-		@OneToMany(mappedBy="help",cascade=CascadeType.ALL)
-		private List<User> users;
 
 		public Help() {
 			super();
@@ -69,17 +61,10 @@ public class Help {
 
 		
 
-		public List<User> getUsers() {
-			return users;
-		}
-
-		public void setUsers(List<User> users) {
-			this.users = users;
-		}
 
 		@Override
 		public String toString() {
-			return "Help [helpId=" + helpId + ", issue=" + issue + ", description=" + description + ", user=" + users
+			return "Help [helpId=" + helpId + ", issue=" + issue + ", description=" + description 
 					+ "]";
 		}
 		
